@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ member.username }}'s Expense Summary</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap (optional, for specific components like buttons) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Background Gradient Animation */
+        body {
+            background: linear-gradient(135deg, #4a2c4c, #1a1c2c);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 10s ease infinite;
+        }
+
+        /* Keyframes for background animation */
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Fade-in Animation for Container */
+        .animate-container {
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Custom Button Styling */
+        .btn-custom {
+            background-color: #6f42c1;
+            color: white;
+            border-radius: 0.5rem;
+            padding: 12px 24px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #5a32a3;
+            transform: translateY(-2px);
+        }
+
+        /* Card Styling */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .card-text {
+            color: #5ec990;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5 animate-container">
+        <h1 class="text-center text-white mb-5 text-3xl font-bold">{{ member.username }}'s Expense Summary</h1>
+
+        <div class="row justify-content-center">
+            <!-- Daily Expenses Card -->
+            <div class="col-md-6 col-sm-12 mb-4">
+                <div class="card transform hover:scale-105 transition-transform duration-300">
+                    <div class="card-body">
+                        <h5 class="card-title text-xl">Daily Expenses</h5>
+                        <p class="card-text text-2xl">${{ expenses['daily'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Expenses Card -->
+            <div class="col-md-6 col-sm-12 mb-4">
+                <div class="card transform hover:scale-105 transition-transform duration-300">
+                    <div class="card-body">
+                        <h5 class="card-title text-xl">Monthly Expenses</h5>
+                        <p class="card-text text-2xl">${{ expenses['monthly'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yearly Expenses Card -->
+            <div class="col-md-6 col-sm-12 mb-4">
+                <div class="card transform hover:scale-105 transition-transform duration-300">
+                    <div class="card-body">
+                        <h5 class="card-title text-xl">Yearly Expenses</h5>
+                        <p class="card-text text-2xl">${{ expenses['yearly'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total Expenses Card -->
+            <div class="col-md-6 col-sm-12 mb-4">
+                <div class="card transform hover:scale-105 transition-transform duration-300">
+                    <div class="card-body">
+                        <h5 class="card-title text-xl">Total Expenses</h5>
+                        <p class="card-text text-2xl">${{ expenses['total'] }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Dashboard Button -->
+        <a href="{{ url_for('dashboard_head' if session['role'] == 'head' else 'dashboard_member') }}" class="btn-custom mt-4 d-block mx-auto text-center">Back to Dashboard</a>
+    </div>
+
+</body>
+
+</html>

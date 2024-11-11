@@ -1,0 +1,31 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+<h2>Member Dashboard: Welcome, {{ username }}</h2>
+<h3>Your Expenses</h3>
+
+<!-- Table to display expenses -->
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Payment Method</th>
+    </tr>
+    {% for expense in expenses %}
+    <tr>
+        <td>{{ expense['amount'] }}</td>
+        <td>{{ expense['expense_date'] }}</td>
+        <td>{{ expense['description'] }}</td>
+        <td>{{ expense['payment_method'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!-- Add Expense Button -->
+<a href="{{ url_for('add_expense') }}" class="btn btn-add-expense">Add Expense</a>
+
+<!-- Summary Button -->
+<a href="{{ url_for('summary') }}" class="btn btn-summary">View Summary</a>
+
+{% endblock %}

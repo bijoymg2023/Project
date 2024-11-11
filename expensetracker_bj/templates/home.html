@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Expense Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #4338ca 0%, #ec4899 100%);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-text {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex flex-col items-center justify-center text-white p-4">
+    <div class="text-center max-w-lg mx-auto">
+        <h2 class="text-4xl font-bold mb-4 floating-text">Welcome to the Family Expense Tracker</h2>
+        <div class="space-y-4">
+            <a href="{{ url_for('register') }}" class="block bg-blue-500 px-6 py-3 rounded-lg shadow-lg text-lg font-semibold hover:bg-blue-600 transition duration-300">Register</a>
+            <a href="{{ url_for('login') }}" class="block bg-pink-500 px-6 py-3 rounded-lg shadow-lg text-lg font-semibold hover:bg-pink-600 transition duration-300">Login</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
