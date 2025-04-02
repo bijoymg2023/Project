@@ -24,13 +24,10 @@
         body {
             overflow-x: hidden;
             margin: 0; /* Remove default margin */
-        }
-        .header {
             height: 100vh; /* Full viewport height */
             position: relative; /* For absolute positioning of child elements */
-            overflow: hidden; /* Hide overflow */
         }
-        .header video {
+        video {
             position: absolute; /* Position video absolutely */
             top: 50%; /* Center vertically */
             left: 50%; /* Center horizontally */
@@ -40,7 +37,7 @@
             height: auto; /* Maintain aspect ratio */
             z-index: 1; /* Place video behind text */
             transform: translate(-50%, -50%); /* Center the video */
-            object-fit: cover; /* Cover the header area */
+            object-fit: cover; /* Cover the entire page */
         }
         .hero {
             position: relative; /* Position relative for text overlay */
@@ -50,7 +47,7 @@
             justify-content: center; /* Center horizontally */
             text-align: center; /* Center text */
             color: white; /* Text color */
-            height: 100%; /* Full height */
+            height: 100vh; /* Full height */
             transition: opacity 0.5s ease; /* Smooth transition for opacity */
         }
         .fade-out {
@@ -73,11 +70,14 @@
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Background Video -->
+    <video autoplay muted loop>
+        <source src="vid4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <!-- Header -->
     <header class="header">
-        <video autoplay muted loop>
-            <source src="vid3.mp4" type="video/mp4">
-        </video>
         <div class="hero">
             <div class="container mx-auto px-4">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">AI-Powered Code Converter</h1>
