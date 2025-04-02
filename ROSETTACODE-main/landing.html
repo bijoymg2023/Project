@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to RosettaCode - AI-powered code conversion platform">
+    <link rel="icon" href="rosettacode_logo.svg" type="image/svg+xml">
+    <title>Welcome to ROSETTACODE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Full-screen video background */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Glow effect */
+        .glow:hover {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+        }
+        
+        /* Brighter text lines */
+        h1, p {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body class="relative text-white">
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="vid2.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+    </div>
+    
+    <header class="absolute top-0 w-full bg-transparent px-4 py-4 flex items-center">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-solid fa-laptop-code text-3xl glow"></i>
+            <h1 class="text-2xl font-extrabold glow">ROSETTACODE</h1>
+        </div>
+    </header>
+    
+    <section class="flex items-center justify-center min-h-screen text-center px-4">
+        <div>
+            <h1 class="text-5xl font-bold mb-4 animate-fadeIn">Welcome to ROSETTACODE</h1>
+            <p class="text-xl max-w-2xl mx-auto mb-8 animate-slideUp">The ultimate AI-powered platform to seamlessly convert code between multiple programming languages.</p>
+            <a href="index.html" class="bg-white text-primary font-medium py-3 px-8 rounded-lg hover:bg-gray-100 transition animate-pulse">Start Converting</a>
+        </div>
+    </section>
+</body>
+</html>
