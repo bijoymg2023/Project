@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* Full-screen video background */
 .video-container {
     position: fixed;
